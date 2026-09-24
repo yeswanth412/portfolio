@@ -30,9 +30,9 @@ class Settings(BaseSettings):
             return v
         return []
 
-    # PostgreSQL Database URL
+    # PostgreSQL Database URL placeholder (overridden by DATABASE_URL env var)
     DATABASE_URL: str = (
-        "postgresql+psycopg2://postgres:postgres@localhost:5432/yeswanth_portfolio"
+        "postgresql+psycopg2://user:password@localhost:5432/portfolio_db"
     )
 
     model_config = SettingsConfigDict(
