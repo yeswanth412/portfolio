@@ -4,7 +4,7 @@ import InteractiveHeroVisual from '../components/InteractiveHeroVisual/Interacti
 import { portfolioData } from '../data/portfolio';
 
 export default function Hero() {
-  const { name, title, subtitle, github } = portfolioData.personal;
+  const { name, fullName, title, subtitle, github } = portfolioData.personal;
 
   return (
     <section id="hero" className="hero-section" aria-label="Introduction">
@@ -14,6 +14,9 @@ export default function Hero() {
             <span className="badge-pill">
               <span className="badge-status-dot" />
               {title}
+            </span>
+            <span className="hero-identity-tag" title="Authoritative Full Name">
+              {fullName}
             </span>
           </div>
 

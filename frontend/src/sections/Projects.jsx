@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SectionHeading from '../components/SectionHeading';
 import ProjectCard from '../components/ProjectCard';
+import ProjectModal from '../components/ProjectModal';
 import ScrollReveal from '../components/ScrollReveal/ScrollReveal';
 import { portfolioData } from '../data/portfolio';
 
 export default function Projects() {
   const { projects } = portfolioData;
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <section id="projects" className="section projects-section" aria-label="Featured Projects">
@@ -25,10 +27,20 @@ export default function Projects() {
               direction="up"
               delay={idx * 80}
             >
-              <ProjectCard project={project} />
+              <ProjectCard
+                project={project}
+                onOpenDetails={(p) => setSelectedProject(p)}
+              />
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Lightweight Project Architecture Detail Modal */}
+        <ProjectModal
+          project={selectedProject}
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       </div>
     </section>
   );

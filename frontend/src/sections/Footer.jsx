@@ -3,14 +3,14 @@ import { portfolioData } from '../data/portfolio';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { name, title, github, linkedin } = portfolioData.personal;
+  const { name, fullName, title, github, linkedin } = portfolioData.personal;
 
   return (
     <footer className="footer-wrap" aria-label="Site Footer">
       <div className="container footer-container">
         <div className="footer-info">
           <p className="footer-name">{name}</p>
-          <p className="footer-title">{title}</p>
+          <p className="footer-title">{fullName} · {title}</p>
         </div>
 
         <div className="footer-links">

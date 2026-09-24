@@ -109,29 +109,29 @@ button {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 0.65rem 1.5rem;
   position: relative;
 }
 
 .divider-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.12), transparent);
 }
 
 .divider-node {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1.25rem;
+  padding: 0 0.85rem;
 }
 
 .divider-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--accent-cyan);
-  box-shadow: 0 0 6px var(--accent-cyan);
+  opacity: 0.75;
 }
 
 /* ==============================================================================
@@ -449,6 +449,10 @@ button {
 }
 
 .hero-badge-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 1.25rem;
 }
 
@@ -471,6 +475,20 @@ button {
   height: 7px;
   background: var(--accent-cyan);
   border-radius: 50%;
+}
+
+.hero-identity-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
 }
 
 .hero-title {
@@ -526,6 +544,89 @@ button {
 /* ==============================================================================
    About Section
    ============================================================================== */
+.about-layout-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.about-profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+
+.profile-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+}
+
+.profile-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+}
+
+.profile-full-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.profile-role {
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+
+.profile-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.profile-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.meta-label {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.meta-value {
+  font-size: 0.875rem;
+  color: #e2e8f0;
+  line-height: 1.45;
+}
+
 .about-content-card {
   display: flex;
   flex-direction: column;
@@ -550,7 +651,7 @@ button {
 
 .about-highlights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 0.75rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-subtle);
@@ -743,6 +844,181 @@ button {
 .project-action-btn.primary {
   color: var(--accent-cyan);
   border-color: var(--accent-border);
+}
+
+/* ==============================================================================
+   Project Detail Modal
+   ============================================================================== */
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 2000;
+  animation: modalFadeIn 200ms ease forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.project-modal-dialog {
+  width: 100%;
+  max-width: 620px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-md);
+  padding: 2.25rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: modalSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.project-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.project-modal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  margin-bottom: 0.45rem;
+}
+
+.modal-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+}
+
+.project-modal-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.project-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.project-modal-close:hover {
+  color: #ffffff;
+  border-color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.project-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-section-heading {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+.modal-text {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+}
+
+.modal-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  list-style: none;
+}
+
+.modal-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.highlight-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  margin-top: 0.45rem;
+  flex-shrink: 0;
+}
+
+.modal-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-modal-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.25rem;
+}
+
+.modal-close-btn {
+  margin-left: auto;
 }
 
 /* ==============================================================================
@@ -1170,6 +1446,10 @@ button {
     gap: 2.5rem;
   }
 
+  .hero-badge-wrap {
+    justify-content: center;
+  }
+
   .hero-description {
     margin-left: auto;
     margin-right: auto;
@@ -1177,6 +1457,11 @@ button {
 
   .hero-actions {
     justify-content: center;
+  }
+
+  .about-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .contact-grid {
@@ -1195,6 +1480,11 @@ button {
 
   .section {
     padding: 4.25rem 0;
+  }
+
+  .project-modal-dialog {
+    padding: 1.5rem;
+    max-width: 95vw;
   }
 
   .footer-container {
@@ -1232,5 +1522,28 @@ button {
 
   .about-highlights-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-modal-backdrop {
+    padding: 0.75rem;
+  }
+
+  .project-modal-dialog {
+    padding: 1.25rem;
+    gap: 1.15rem;
+  }
+
+  .project-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modal-close-btn {
+    margin-left: 0;
   }
 }
