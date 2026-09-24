@@ -1,7 +1,7 @@
 # Architecture & System Design — Yeswanth Portfolio
 
 ## 1. Overview & Vision
-The **Yeswanth Portfolio** is a production-grade personal developer platform showcasing Yeswanth Uggina's expertise as a **Python Backend Developer / Python Full Stack Developer with AI Focus**.
+The **Yeswanth Portfolio** is a production-grade personal developer platform showcasing Yeswanth Uggina's expertise as a **Python Developer / Python Full Stack Developer with AI Focus**.
 
 Rather than a static brochure site, this platform is designed as a modular, decoupled full-stack architecture capable of running high-performance API endpoints, maintaining transactional database models, and orchestrating AI/RAG workflows (such as an interactive "Ask My Portfolio" assistant).
 

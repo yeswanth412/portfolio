@@ -4,7 +4,7 @@ import ScrollReveal from '../components/ScrollReveal/ScrollReveal';
 import { portfolioData } from '../data/portfolio';
 
 export default function About() {
-  const { fullName } = portfolioData.personal;
+  const { fullName, title } = portfolioData.personal;
   const { heading, paragraphs } = portfolioData.about;
 
   return (
@@ -27,7 +27,7 @@ export default function About() {
                 <span>ENGINEERING IDENTITY</span>
               </div>
               <h3 className="profile-full-name">{fullName}</h3>
-              <p className="profile-role">Python Backend Developer</p>
+              <p className="profile-role">{title}</p>
               
               <div className="profile-meta-list">
                 <div className="profile-meta-item">

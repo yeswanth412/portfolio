@@ -1,6 +1,6 @@
 # Yeswanth Portfolio
 
-A production-grade personal developer portfolio built for **Yeswanth Uggina**, showcasing expertise as a **Python Backend Developer / Python Full Stack Developer with AI Focus**.
+A production-grade personal developer portfolio built for **Yeswanth Uggina**, showcasing expertise as a **Python Developer / Python Full Stack Developer with AI Focus**.
 
 The project brings together a modern responsive React frontend, a robust FastAPI backend with SQLAlchemy 2.x and PostgreSQL, and a planned AI/RAG query engine.
 

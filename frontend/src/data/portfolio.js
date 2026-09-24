@@ -1,11 +1,11 @@
 export const portfolioData = {
   personal: {
     name: "Yeswanth Uggina",
-    fullName: "Uggina Yeswanth Narasayya Naidu",
-    title: "Python Backend Developer",
+    fullName: "UGGINA YESWANTH NARASAYYA NAIDU",
+    title: "Python Developer",
     subtitle: "Building backend systems, APIs, and AI-powered applications with Python.",
-    bio: "Python Backend Developer focused on building robust backend systems, scalable REST APIs, relational data modeling, and practical AI-powered applications.",
-    email: "yeswanthuggina@gmail.com",
+    bio: "Python Developer focused on building robust backend systems, scalable REST APIs, relational data modeling, and practical AI-powered applications.",
+    email: "ugginayeswanthnarasayyanaidu@gmail.com",
     github: "https://github.com/yeswanth412?tab=repositories",
     linkedin: "https://www.linkedin.com/in/yeswanth-uggina/",
     location: "India",
@@ -14,10 +14,10 @@ export const portfolioData = {
 
   about: {
     heading: "Engineering robust backend systems with modern Python.",
-    fullName: "Uggina Yeswanth Narasayya Naidu",
+    fullName: "UGGINA YESWANTH NARASAYYA NAIDU",
     educationBrief: "B.Tech in Computer Science and Engineering — Gayatri Vidya Parishad College of Engineering",
     paragraphs: [
-      "I am a Python Backend Developer with a Computer Science and Engineering background from Gayatri Vidya Parishad College of Engineering. My core focus is designing, building, and maintaining reliable backend architectures, high-performance REST APIs, and database-driven applications.",
+      "I am a Python Developer with a Computer Science and Engineering background from Gayatri Vidya Parishad College of Engineering. My core focus is designing, building, and maintaining reliable backend architectures, high-performance REST APIs, and database-driven applications.",
       "My primary backend stack centers on Python, FastAPI, and SQLAlchemy, with relational data modeling in PostgreSQL and document storage in MongoDB. I place strong emphasis on strict request/response validation with Pydantic, clear API contracts, authentication/authorization workflows, and predictable error handling.",
       "Beyond conventional backend engineering, I am actively expanding into applied Artificial Intelligence—working with machine learning pipelines, Large Language Model (LLM) integration, and Retrieval-Augmented Generation (RAG) concepts to build practical, intelligent services.",
     ],
@@ -119,7 +119,7 @@ export const portfolioData = {
 
   experience: [
     {
-      role: "Python Backend Developer",
+      role: "Python Developer",
       organization: "Independent Software Engineering",
       period: "2024 – Present",
       description:
