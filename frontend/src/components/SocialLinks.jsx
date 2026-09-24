@@ -1,16 +1,18 @@
 import React from 'react';
-import { socialsData } from '../data/socials';
+import { portfolioData } from '../data/portfolio';
 
 export default function SocialLinks({ className = '', showLabels = false }) {
+  const { github, linkedin, email } = portfolioData.personal;
+
   const items = [
     {
       name: 'GitHub',
-      url: socialsData.github,
+      url: github,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="19"
+          height="19"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -26,12 +28,12 @@ export default function SocialLinks({ className = '', showLabels = false }) {
     },
     {
       name: 'LinkedIn',
-      url: socialsData.linkedin,
+      url: linkedin,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="19"
+          height="19"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -48,12 +50,12 @@ export default function SocialLinks({ className = '', showLabels = false }) {
     },
     {
       name: 'Email',
-      url: `mailto:${socialsData.email}`,
+      url: `mailto:${email}`,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="19"
+          height="19"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

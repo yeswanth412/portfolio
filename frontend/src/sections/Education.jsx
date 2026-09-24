@@ -1,25 +1,27 @@
 import React from 'react';
 import SectionHeading from '../components/SectionHeading';
-import { educationData } from '../data/education';
+import { portfolioData } from '../data/portfolio';
 
 export default function Education() {
+  const { education } = portfolioData;
+
   return (
-    <section id="education" className="section education-section" aria-label="Education History">
+    <section id="education" className="section education-section" aria-label="Education Background">
       <div className="container">
         <SectionHeading
-          tag="ACADEMIC FOUNDATION"
-          title="Education."
-          description="Formal academic grounding in Computer Science, algorithms, systems engineering, and mathematics."
+          tag="EDUCATION"
+          title="Academic background."
+          description="Formal academic education in Computer Science and foundational STEM curricula."
         />
 
         <div className="education-grid">
-          {educationData.map((edu, idx) => (
+          {education.map((item, idx) => (
             <div key={idx} className="education-card card">
               <div className="edu-icon-wrap">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="22"
+                  height="22"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -34,11 +36,11 @@ export default function Education() {
               </div>
 
               <div className="edu-details">
-                <h3 className="edu-degree">{edu.degree}</h3>
-                <p className="edu-field">{edu.field}</p>
-                <p className="edu-institution">{edu.institution}</p>
-                <p className="edu-location text-muted">{edu.location}</p>
-                {edu.details && <p className="edu-description">{edu.details}</p>}
+                <h3 className="edu-degree">{item.degree}</h3>
+                <p className="edu-institution">{item.institution}</p>
+                {item.field && <p className="edu-field">{item.field}</p>}
+                {item.location && <p className="edu-location text-muted">{item.location}</p>}
+                {item.details && <p className="edu-description">{item.details}</p>}
               </div>
             </div>
           ))}

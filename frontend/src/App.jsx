@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -8,17 +8,14 @@ import Experience from './sections/Experience';
 import Education from './sections/Education';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
-import ResumeModal from './components/ResumeModal';
 
 export default function App() {
-  const [resumeOpen, setResumeOpen] = useState(false);
-
   return (
     <div className="portfolio-app-root">
-      <Navbar onOpenResume={() => setResumeOpen(true)} />
+      <Navbar />
       
       <main id="main-content">
-        <Hero onOpenResume={() => setResumeOpen(true)} />
+        <Hero />
         <About />
         <Skills />
         <Projects />
@@ -28,11 +25,6 @@ export default function App() {
       </main>
 
       <Footer />
-
-      <ResumeModal
-        isOpen={resumeOpen}
-        onClose={() => setResumeOpen(false)}
-      />
     </div>
   );
 }

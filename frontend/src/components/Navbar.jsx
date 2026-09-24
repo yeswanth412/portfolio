@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { portfolioData } from '../data/portfolio';
 
-export default function Navbar({ onOpenResume }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
+  const { github, linkedin } = portfolioData.personal;
+
   const navLinks = [
+    { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
 
-      // Simple active link tracking
-      const sections = ['about', 'skills', 'projects', 'experience', 'education', 'contact'];
-      const scrollPos = window.scrollY + 120;
+      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const scrollPos = window.scrollY + 140;
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -54,7 +56,7 @@ export default function Navbar({ onOpenResume }) {
           href="#hero"
           onClick={(e) => handleLinkClick(e, '#hero')}
           className="nav-brand"
-          aria-label="Yeswanth Uggina Home"
+          aria-label="Yeswanth Uggina Portfolio Home"
         >
           <span className="brand-accent">YESWANTH</span>
           <span className="brand-dot">.</span>
@@ -64,7 +66,8 @@ export default function Navbar({ onOpenResume }) {
         <nav className="nav-desktop" aria-label="Main Navigation">
           <ul className="nav-list">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const sectionId = link.href.substring(1);
+              const isActive = activeSection === sectionId;
               return (
                 <li key={link.name} className="nav-item">
                   <a
@@ -80,18 +83,62 @@ export default function Navbar({ onOpenResume }) {
           </ul>
         </nav>
 
-        {/* Action Button */}
+        {/* Nav Social Links & Mobile Trigger */}
         <div className="nav-actions">
-          <button
-            type="button"
-            className="btn btn-outline btn-sm nav-resume-btn"
-            onClick={onOpenResume}
-            aria-label="View Resume"
-          >
-            Resume
-          </button>
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-social-btn"
+              aria-label="GitHub Profile"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
+          )}
 
-          {/* Mobile Menu Button */}
+          {linkedin && (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-social-btn"
+              aria-label="LinkedIn Profile"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          )}
+
+          {/* Mobile Menu Toggle Button */}
           <button
             type="button"
             className="mobile-menu-toggle"
@@ -121,17 +168,27 @@ export default function Navbar({ onOpenResume }) {
               </a>
             </li>
           ))}
-          <li className="mobile-nav-item">
-            <button
-              type="button"
-              className="btn btn-primary btn-md mobile-resume-btn"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
-            >
-              Resume Summary
-            </button>
+          <li className="mobile-nav-social-row">
+            {github && (
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline btn-sm"
+              >
+                GitHub
+              </a>
+            )}
+            {linkedin && (
+              <a
+                href={linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline btn-sm"
+              >
+                LinkedIn
+              </a>
+            )}
           </li>
         </ul>
       </div>

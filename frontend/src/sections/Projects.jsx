@@ -1,46 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SectionHeading from '../components/SectionHeading';
 import ProjectCard from '../components/ProjectCard';
-import { projectsData } from '../data/projects';
+import { portfolioData } from '../data/portfolio';
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState('All');
-
-  const categories = ['All', 'Backend', 'AI', 'Full Stack'];
-
-  const filteredProjects =
-    activeFilter === 'All'
-      ? projectsData
-      : projectsData.filter((p) => p.category === activeFilter);
+  const { projects } = portfolioData;
 
   return (
     <section id="projects" className="section projects-section" aria-label="Featured Projects">
       <div className="container">
         <SectionHeading
-          tag="FEATURED WORK"
-          title="Engineered projects & systems."
-          description="A selection of backend systems, microservices, and AI-enabled software implementations built around real-world requirements."
+          tag="PROJECTS"
+          title="Featured engineering projects."
+          description="Verified applications and backend services engineered around real-world requirements, database persistence, and API design."
         />
 
-        {/* Filter controls */}
-        <div className="projects-filter-bar" role="tablist" aria-label="Filter projects by category">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              role="tab"
-              aria-selected={activeFilter === cat}
-              className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
-              onClick={() => setActiveFilter(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
         <div className="projects-grid">
-          {filteredProjects.map((project) => (
+          {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
