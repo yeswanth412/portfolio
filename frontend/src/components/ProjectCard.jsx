@@ -4,7 +4,7 @@ export default function ProjectCard({ project }) {
   const { title, description, technologies, githubUrl, liveUrl } = project;
 
   return (
-    <article className="project-card">
+    <article className="project-card card-interactive">
       <div className="project-card-header">
         <h3 className="project-title">{title}</h3>
       </div>
@@ -33,8 +33,8 @@ export default function ProjectCard({ project }) {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="15"
+                height="15"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -60,8 +60,8 @@ export default function ProjectCard({ project }) {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="15"
+                height="15"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
