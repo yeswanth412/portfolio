@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
-import InteractiveHeroVisual from './InteractiveHeroVisual';
+import InteractiveHeroVisual from '../components/InteractiveHeroVisual/InteractiveHeroVisual';
 import { portfolioData } from '../data/portfolio';
 
 export default function Hero() {
