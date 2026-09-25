@@ -1,0 +1,136 @@
+/* ==============================================================================
+   Character Visual Styles — Phase 2D
+   ============================================================================== */
+
+.character-visual-container {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 460px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Ambient Radial Glow behind the character */
+.character-ambient-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.14) 0%,
+    rgba(37, 99, 235, 0.06) 45%,
+    transparent 72%
+  );
+  filter: blur(32px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Architectural halo ring motif matching portfolio technical language */
+.character-ring-motif {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.16);
+  pointer-events: none;
+  z-index: 0;
+  animation: rotateRing 60s linear infinite;
+}
+
+@keyframes rotateRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-ring-motif {
+    animation: none;
+  }
+}
+
+/* The Three.js Canvas */
+.character-three-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  z-index: 1;
+  outline: none;
+}
+
+/* Fallback for loading / no WebGL */
+.character-canvas-fallback,
+.character-static-fallback {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.fallback-glow-disc {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.12) 0%,
+    transparent 70%
+  );
+  filter: blur(20px);
+}
+
+.fallback-character-svg {
+  width: 200px;
+  height: 240px;
+  z-index: 2;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .character-visual-container {
+    max-width: 440px;
+    height: 390px;
+  }
+
+  .character-ambient-glow {
+    width: 300px;
+    height: 300px;
+  }
+
+  .character-ring-motif {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-visual-container {
+    max-width: 320px;
+    height: 320px;
+  }
+
+  .character-ambient-glow {
+    width: 240px;
+    height: 240px;
+  }
+
+  .character-ring-motif {
+    width: 230px;
+    height: 230px;
+  }
+}
