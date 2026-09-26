@@ -1,0 +1,558 @@
+/* Hero.css — Dribbble (Dymas Alfin) Editorial Portfolio Design System */
+
+.dymas-hero-stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f6f5f1;
+  color: #09090b;
+  overflow: hidden;
+  padding: 6.5rem 5vw 3rem 5vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Background Architectural Grid Lines */
+.dymas-hero-bg-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dymas-bg-line.horizontal {
+  position: absolute;
+  top: 14%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(9, 9, 11, 0.07) 15%, rgba(9, 9, 11, 0.07) 85%, transparent);
+}
+
+.dymas-bg-line.vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 38%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(9, 9, 11, 0.06) 10%, rgba(9, 9, 11, 0.06) 90%, transparent);
+}
+
+/* Main Container */
+.dymas-hero-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+/* ==============================================================================
+   1. TOP STATUS & ROLE BAR
+   ============================================================================== */
+.dymas-hero-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(9, 9, 11, 0.08);
+  animation: dymasFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.dymas-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(9, 9, 11, 0.04);
+  border: 1px solid rgba(9, 9, 11, 0.08);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #18181b;
+}
+
+.dymas-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #e11d48;
+  display: inline-block;
+  animation: dymasPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes dymasPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+.dymas-meta-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #71717a;
+  text-transform: uppercase;
+}
+
+/* ==============================================================================
+   2. MASTER EDITORIAL HEADLINE
+   ============================================================================== */
+.dymas-headline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: dymasFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.dymas-kicker-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #e11d48;
+}
+
+.dymas-kicker-sep {
+  color: rgba(9, 9, 11, 0.2);
+}
+
+.dymas-kicker-role {
+  color: #52525b;
+}
+
+.dymas-master-headline {
+  margin: 0;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  font-size: clamp(2.8rem, 6.4vw, 5.8rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  color: #09090b;
+  text-transform: uppercase;
+}
+
+.dymas-head-line-1 {
+  display: block;
+  color: #09090b;
+}
+
+.dymas-head-line-2 {
+  display: block;
+  color: #18181b;
+}
+
+.dymas-head-amp {
+  font-weight: 300;
+  color: #e11d48;
+}
+
+/* ==============================================================================
+   3. HERO SPLIT BODY GRID
+   ============================================================================== */
+.dymas-hero-body-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+  animation: dymasFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* Left Narrative Column */
+.dymas-hero-narrative-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dymas-bio-lead {
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.7;
+  color: #3f3f46;
+  font-weight: 400;
+  max-width: 680px;
+  margin: 0;
+}
+
+/* Action Buttons Group */
+.dymas-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.dymas-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 9999px;
+  background-color: #09090b;
+  color: #ffffff;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 10px 24px -4px rgba(9, 9, 11, 0.35);
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.26s ease;
+}
+
+.dymas-btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: #e11d48;
+  box-shadow: 0 14px 28px -4px rgba(225, 29, 72, 0.45);
+}
+
+.dymas-btn-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dymas-btn-primary:hover .dymas-btn-arrow {
+  transform: translateX(4px);
+}
+
+.dymas-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.88rem 1.9rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  border: 1px solid rgba(9, 9, 11, 0.16);
+  color: #18181b;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.dymas-btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: #09090b;
+}
+
+.dymas-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.88rem 1.4rem;
+  color: #27272a;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dymas-btn-ghost:hover {
+  color: #e11d48;
+  transform: translateY(-1px);
+}
+
+.dymas-btn-ghost:hover .dymas-btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Metrics Strip (Dymas 4-Tile Grid) */
+.dymas-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.dymas-metric-tile {
+  background: #ffffff;
+  border: 1px solid rgba(9, 9, 11, 0.08);
+  border-radius: 4px;
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.dymas-metric-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(225, 29, 72, 0.35);
+}
+
+.dymas-metric-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #e11d48;
+}
+
+.dymas-metric-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dymas-metric-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #09090b;
+  text-transform: uppercase;
+}
+
+.dymas-metric-sub {
+  font-size: 0.78rem;
+  color: #71717a;
+}
+
+/* Right Column: Editorial Framed Portrait */
+.dymas-hero-portrait-col {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dymas-portrait-frame {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 1px solid rgba(9, 9, 11, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.dymas-portrait-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 56px -12px rgba(0, 0, 0, 0.12);
+}
+
+.dymas-portrait-frame-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  background: #fbfbf9;
+  border-bottom: 1px solid rgba(9, 9, 11, 0.08);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.dymas-frame-chip {
+  color: #71717a;
+}
+
+.dymas-frame-badge {
+  color: #e11d48;
+}
+
+.dymas-portrait-viewport {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: radial-gradient(circle at 50% 30%, #f4f3ef 0%, #ebe8e1 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dymas-portrait-img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  user-select: none;
+  filter: contrast(1.02);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dymas-portrait-frame:hover .dymas-portrait-img {
+  transform: scale(1.02);
+}
+
+.dymas-portrait-frame-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border-top: 1px solid rgba(9, 9, 11, 0.08);
+}
+
+.dymas-frame-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.dymas-frame-name {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #09090b;
+}
+
+.dymas-frame-location {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: #71717a;
+}
+
+.dymas-frame-spec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: #a1a1aa;
+}
+
+/* ==============================================================================
+   4. BOTTOM SOCIAL & SCROLL STRIP
+   ============================================================================== */
+.dymas-hero-bottom-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(9, 9, 11, 0.08);
+  animation: dymasFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.dymas-social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #52525b;
+}
+
+.dymas-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #27272a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dymas-social-link:hover {
+  color: #e11d48;
+}
+
+.dymas-link-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.dymas-social-link:hover .dymas-link-arrow {
+  transform: translate(2px, -2px);
+}
+
+.dymas-social-dot {
+  color: rgba(9, 9, 11, 0.2);
+}
+
+.dymas-scroll-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #18181b;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.dymas-scroll-indicator:hover {
+  color: #e11d48;
+}
+
+.dymas-scroll-arrow {
+  font-size: 0.95rem;
+  animation: dymasArrowBounce 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes dymasArrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes dymasFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .dymas-hero-body-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .dymas-hero-portrait-col {
+    justify-content: flex-start;
+  }
+  .dymas-bg-line.vertical {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .dymas-hero-stage {
+    padding: 5rem 1.5rem 2.5rem 1.5rem;
+  }
+  .dymas-metrics-strip {
+    grid-template-columns: 1fr;
+  }
+  .dymas-hero-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dymas-hero-bottom-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

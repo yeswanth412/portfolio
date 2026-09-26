@@ -3,157 +3,209 @@ export const portfolioData = {
     name: "Yeswanth Uggina",
     fullName: "UGGINA YESWANTH NARASAYYA NAIDU",
     title: "Python Developer",
-    subtitle: "Building backend systems, APIs, and AI-powered applications with Python.",
-    bio: "Python Developer focused on building robust backend systems, scalable REST APIs, relational data modeling, and practical AI-powered applications.",
+    subtitle: "Building practical applications, APIs, and database-backed systems with Python.",
+    bio: "Aspiring Python Developer with a strong foundation in Python, FastAPI, SQL, PostgreSQL, and database management. Experienced in developing RESTful APIs, implementing CRUD operations, and designing relational database solutions.",
     email: "ugginayeswanthnarasayyanaidu@gmail.com",
+    phone: "+91-6304397552",
     github: "https://github.com/yeswanth412?tab=repositories",
     linkedin: "https://www.linkedin.com/in/yeswanth-uggina/",
-    location: "India",
-    availability: "Available for backend and AI engineering roles",
+    location: "Visakhapatnam, Andhra Pradesh, India",
+    availability: "Available for opportunities",
+    resumeUrl: "#contact",
   },
 
   about: {
-    heading: "Engineering robust backend systems with modern Python.",
+    heading: "Building reliable backend architectures, structured APIs, and data solutions with modern Python.",
     fullName: "UGGINA YESWANTH NARASAYYA NAIDU",
-    educationBrief: "B.Tech in Computer Science and Engineering — Gayatri Vidya Parishad College of Engineering",
+    educationBrief: "Bachelor of Technology (Computer Science & Engineering) — Gayatri Vidya Parishad College for Degree & PG Courses (A), Visakhapatnam",
     paragraphs: [
-      "I am a Python Developer with a Computer Science and Engineering background from Gayatri Vidya Parishad College of Engineering. My core focus is designing, building, and maintaining reliable backend architectures, high-performance REST APIs, and database-driven applications.",
-      "My primary backend stack centers on Python, FastAPI, and SQLAlchemy, with relational data modeling in PostgreSQL and document storage in MongoDB. I place strong emphasis on strict request/response validation with Pydantic, clear API contracts, authentication/authorization workflows, and predictable error handling.",
-      "Beyond conventional backend engineering, I am actively expanding into applied Artificial Intelligence—working with machine learning pipelines, Large Language Model (LLM) integration, and Retrieval-Augmented Generation (RAG) concepts to build practical, intelligent services.",
+      "I am a Python Developer with a Bachelor of Technology in Computer Science and Engineering from Gayatri Vidya Parishad College for Degree & PG Courses (A), Visakhapatnam.",
+      "My primary engineering focus centers on developing RESTful APIs, implementing secure CRUD operations, and designing relational database architectures with Python, FastAPI, SQL, and PostgreSQL.",
+      "With hands-on experience in JWT authentication, modular application design, database normalization, and complex querying, I focus on writing clean, scalable, and maintainable software.",
     ],
   },
 
   skills: [
     {
-      category: "Backend",
-      skills: ["Python", "FastAPI", "REST APIs", "SQL", "SQLAlchemy"],
+      category: "LANGUAGES",
+      skills: ["Python", "SQL"],
     },
     {
-      category: "Databases",
+      category: "BACKEND & APIS",
+      skills: ["FastAPI", "REST APIs", "Pydantic", "CRUD Operations"],
+    },
+    {
+      category: "DATABASES",
       skills: ["PostgreSQL", "MySQL", "MongoDB"],
     },
     {
-      category: "Frontend",
-      skills: ["HTML", "CSS", "JavaScript", "React"],
+      category: "WEB & FRONTEND",
+      skills: ["HTML", "CSS", "JavaScript"],
     },
     {
-      category: "AI / ML",
-      skills: ["Machine Learning", "LLM", "RAG"],
+      category: "TOOLS & ENVIRONMENT",
+      skills: ["Git", "GitHub", "VS Code", "Postman", "Swagger UI"],
     },
     {
-      category: "Tools",
-      skills: ["Git", "GitHub", "Postman", "Swagger UI", "VS Code"],
+      category: "CORE CONCEPTS",
+      skills: ["OOP", "DBMS", "Data Structures", "Relational Modeling"],
     },
   ],
 
+  capabilities: [
+    {
+      id: "01",
+      title: "PYTHON & FASTAPI BACKEND",
+      description: "Developing structured RESTful APIs, Pydantic validation, and modular router architectures.",
+    },
+    {
+      id: "02",
+      title: "DATABASE MANAGEMENT",
+      description: "Designing normalized schemas, complex joins, indexing, and persistence across PostgreSQL and MySQL.",
+    },
+    {
+      id: "03",
+      title: "SECURITY & AUTHENTICATION",
+      description: "Implementing JWT token lifecycles, password hashing, and role-based access controls.",
+    },
+    {
+      id: "04",
+      title: "APPLIED AI EXPLORATION",
+      description: "Certified in CS50 AI with Python, exploring machine learning pipelines and intelligent workflows.",
+    },
+  ],
+
+  quote: "I build practical software systems that solve real-world problems with clean code, reliable APIs, and modern technologies.",
+
+  // VERIFIED GITHUB PROJECTS ONLY
   projects: [
     {
-      id: "gocars",
+      id: "go-cars",
+      number: "01",
       title: "GoCars",
-      description:
-        "A vehicle rental platform focused on backend architecture, booking workflows, authentication, authorization, and database-driven application design.",
-      architecture:
-        "Engineered with FastAPI and SQLAlchemy for database-backed rental management. Employs JWT authentication, Role-Based Access Control (RBAC), and relational schema design in PostgreSQL/Supabase with strict request validation.",
+      category: "Mobility & Car Rental Platform",
+      description: "A full-featured car mobility and rental platform supporting self-drive rentals, driver services, fleet management, and automated booking workflows.",
+      architecture: "Clean layered backend architecture built with FastAPI, SQLAlchemy 2.0, and PostgreSQL. Features Alembic database migrations, JWT authentication, and structured business logic.",
       highlights: [
-        "FastAPI backend architecture with modular routers",
-        "Role-Based Access Control (RBAC) and JWT authentication",
-        "Relational schema modeling and queries via SQLAlchemy",
-        "PostgreSQL database integration and Supabase persistence",
+        "Modular FastAPI router architecture with clean separation of concerns",
+        "Relational schema modeling and migrations with SQLAlchemy & Alembic",
+        "Booking workflow state management and pricing calculations",
+        "PostgreSQL database integration with strict validation",
       ],
-      technologies: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "JWT", "RBAC", "Supabase"],
+      technologies: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "JWT"],
       githubUrl: "https://github.com/yeswanth412/go_cars",
       liveUrl: null,
     },
     {
-      id: "flashwear",
-      title: "FLASHWEAR",
-      description:
-        "E-commerce application project focused on product catalog management, cart interactions, and shopping functionality with clean RESTful endpoints.",
-      architecture:
-        "Modular REST API architecture implemented in Python and FastAPI. Implements structured data models for products and inventory management with SQLAlchemy ORM handling database persistence.",
+      id: "fastapi-auth",
+      number: "02",
+      title: "FastAPI Authentication Service",
+      category: "Security & Microservices",
+      description: "A production-ready authentication backend implementing user registration, secure login, password reset, and protected API routes.",
+      architecture: "Engineered with FastAPI, MongoDB, JWT (access and refresh tokens), and SMTP email verification for robust user identity management.",
       highlights: [
-        "Product catalog management and item categorization endpoints",
-        "Cart interaction logic and order processing flow",
-        "FastAPI dependency injection and Pydantic validation",
-        "SQLAlchemy ORM integration for structured queries",
+        "User registration and credential hashing workflows",
+        "JWT generation with access and refresh token rotation",
+        "SMTP email verification and password reset integration",
+        "Protected endpoint dependencies with Bearer token authentication",
       ],
-      technologies: ["Python", "FastAPI", "REST APIs", "SQLAlchemy"],
-      githubUrl: "https://github.com/yeswanth412/e_commerce",
-      liveUrl: null,
-    },
-    {
-      id: "auth-api",
-      title: "FastAPI Authentication API",
-      description:
-        "Backend authentication service implementing registration, login, protected profile access, and JWT-based authentication.",
-      architecture:
-        "Dedicated microservice for user identity and credential validation. Incorporates password hashing with bcrypt, JSON Web Token (JWT) issuance, and document-oriented storage with MongoDB.",
-      highlights: [
-        "Secure registration and login endpoints with password hashing",
-        "JWT generation, expiration management, and token verification",
-        "Protected profile route with Bearer token authentication",
-        "MongoDB document persistence and schema validation",
-      ],
-      technologies: ["Python", "FastAPI", "MongoDB", "JWT"],
+      technologies: ["Python", "FastAPI", "MongoDB", "JWT", "SMTP"],
       githubUrl: "https://github.com/yeswanth412/fastapi_authentication-service",
       liveUrl: null,
     },
     {
-      id: "ml-projects",
-      title: "Machine Learning Projects",
-      description:
-        "A grouped machine learning project showcase focusing on regression and classification pipelines, feature engineering, and model evaluation.",
-      architecture:
-        "End-to-end data processing and modeling workflows developed in Python. Leverages Pandas and NumPy for feature engineering and Scikit-Learn for training classification and regression models.",
+      id: "ecommerce-db",
+      number: "03",
+      title: "E-Commerce Database System",
+      category: "Relational Database Engineering",
+      description: "A relational database schema for an e-commerce platform with normalized entities for customers, products, orders, suppliers, and inventory.",
+      architecture: "Implemented in PostgreSQL with comprehensive DDL and DML scripts. Features normalized entity relations and optimized SQL queries.",
       highlights: [
-        "Data preprocessing, normalization, and feature transformation pipelines",
-        "Model evaluation using precision, recall, and cross-validation metrics",
-        "Implementation of supervised learning algorithms",
-        "Exploratory Data Analysis (EDA) on structured datasets",
+        "Normalized 3NF relational schemas for high data integrity",
+        "Advanced queries utilizing INNER, LEFT, RIGHT, and FULL joins",
+        "Aggregation logic and GROUP BY analytics for order reporting",
+        "Entity-Relationship (ER) diagram architecture",
       ],
-      technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy"],
-      githubUrl: "https://github.com/yeswanth412?tab=repositories",
+      technologies: ["SQL", "PostgreSQL", "Relational Modeling", "Joins", "Data Integrity"],
+      githubUrl: "https://github.com/yeswanth412/e_commerce",
       liveUrl: null,
+    },
+    {
+      id: "hospital-management",
+      number: "04",
+      title: "Hospital Management System",
+      category: "Database & Backend Systems",
+      description: "An object-oriented patient and doctor management application integrating relational SQL queries with document data storage.",
+      architecture: "Built with Python, SQL, and MongoDB. Features menu-driven OOP controllers, patient record persistence, and multi-database querying.",
+      highlights: [
+        "Object-oriented Python service architecture for healthcare entities",
+        "SQL table creation, sample insertion, and clinical record queries",
+        "MongoDB document-based storage for flexible patient records",
+        "Modular data persistence layer",
+      ],
+      technologies: ["Python", "SQL", "MongoDB", "OOP", "DBMS"],
+      githubUrl: "https://github.com/yeswanth412/hospital_management",
+      liveUrl: null,
+    },
+  ],
+
+  whatIveBuilt: [
+    {
+      id: "01",
+      title: "BACKEND & APIS",
+      description: "Developing structured RESTful endpoints and authentication workflows using Python and FastAPI.",
+    },
+    {
+      id: "02",
+      title: "DATABASE ARCHITECTURE",
+      description: "Designing normalized relational schemas and optimized queries across PostgreSQL and MySQL.",
+    },
+    {
+      id: "03",
+      title: "PRACTICAL ENGINEERING",
+      description: "Solving business workflow challenges through object-oriented design and clean code standards.",
     },
   ],
 
   experience: [
     {
-      role: "Python Developer",
-      organization: "Independent Software Engineering",
-      period: "2024 – Present",
-      description:
-        "Designing, developing, and testing modular backend services, database schemas, and RESTful APIs.",
-      highlights: [
-        "Architected the GoCars rental platform backend with FastAPI, PostgreSQL, and SQLAlchemy, implementing role-based access control (RBAC).",
-        "Constructed a dedicated JWT authentication service utilizing password hashing and MongoDB document storage.",
-        "Built RESTful product catalog and order processing workflows for the FLASHWEAR e-commerce project.",
-        "Developed end-to-end machine learning data preprocessing, classification, and regression workflows with Scikit-Learn.",
-      ],
-      technologies: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "MongoDB", "REST APIs", "Git"],
+      role: "Java Development Intern",
+      organization: "Cognifyz Technologies",
+      period: "Jan 2026 – Feb 2026",
+      description: "Developed Java applications, implemented CRUD operations, and worked with MySQL and Object-Oriented Programming.",
+      technologies: ["Java", "MySQL", "OOP", "CRUD"],
     },
   ],
 
   education: [
     {
-      degree: "B.Tech — Computer Science and Engineering",
-      institution: "Gayatri Vidya Parishad College of Engineering",
-      location: "Visakhapatnam, India",
-      details: "Comprehensive coursework in Data Structures, Algorithms, DBMS, OOP, and Computer Networks.",
+      degree: "Bachelor of Technology (Computer Science and Engineering)",
+      institution: "Gayatri Vidya Parishad College for Degree & PG Courses (A)",
+      location: "Visakhapatnam, Andhra Pradesh",
+      period: "2022 – 2026",
     },
     {
-      degree: "Intermediate (Senior Secondary)",
-      institution: "State Board of Intermediate Education",
-      field: "Mathematics, Physics, Chemistry (MPC)",
-      location: "Andhra Pradesh, India",
-      details: "Rigorous focus on advanced mathematics, analytical reasoning, and foundational science.",
+      degree: "Intermediate (MPC)",
+      institution: "Sasi Junior College, Vellivenu",
+      location: "Board of Intermediate Education, Andhra Pradesh",
+      period: "2020 – 2022",
     },
     {
       degree: "Secondary School Certificate (SSC)",
-      institution: "State Board of Secondary Education",
-      field: "General Secondary Curriculum",
-      location: "Andhra Pradesh, India",
-      details: "Foundational education in mathematics, physical sciences, and computer literacy.",
+      institution: "Sri Chaitanya Em School, Narsipatnam",
+      location: "Board of Secondary Education, Andhra Pradesh",
+      period: "2020",
+    },
+  ],
+
+  certifications: [
+    {
+      name: "CS50’s Introduction to Artificial Intelligence with Python",
+      issuer: "HarvardX / CS50",
+    },
+    {
+      name: "Java Development Internship",
+      issuer: "Cognifyz Technologies",
     },
   ],
 };

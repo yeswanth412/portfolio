@@ -9,12 +9,12 @@ export default function Navbar() {
   const { github, linkedin } = portfolioData.personal;
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'ABOUT', href: '#about' },
+    { name: 'SKILLS', href: '#skills' },
+    { name: 'PROJECTS', href: '#projects' },
+    { name: 'EXPERIENCE', href: '#experience' },
+    { name: 'EDUCATION', href: '#education' },
+    { name: 'CONTACT', href: '#contact' },
   ];
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Use IntersectionObserver for performant active section tracking
-    const sectionIds = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
+    const sectionIds = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
     const sectionElements = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean);
@@ -69,8 +69,8 @@ export default function Navbar() {
           className="nav-brand"
           aria-label="Yeswanth Uggina Portfolio Home"
         >
-          <span className="brand-accent">YESWANTH</span>
-          <span className="brand-dot">.</span>
+          <span className="brand-code-sym">&lt;/&gt;</span>
+          <span className="brand-name">YESWANTH UGGINA</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -78,7 +78,7 @@ export default function Navbar() {
           <ul className="nav-list">
             {navLinks.map((link) => {
               const sectionId = link.href.substring(1);
-              const isActive = activeSection === sectionId;
+              const isActive = activeSection === sectionId || (sectionId === 'about' && activeSection === 'hero');
               return (
                 <li key={link.name} className="nav-item">
                   <a
@@ -96,6 +96,8 @@ export default function Navbar() {
 
         {/* Nav Social Links & Mobile Trigger */}
         <div className="nav-actions">
+          <span className="nav-divider" aria-hidden="true">|</span>
+
           {github && (
             <a
               href={github}
@@ -106,8 +108,8 @@ export default function Navbar() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="19"
-                height="19"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -132,8 +134,8 @@ export default function Navbar() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="19"
-                height="19"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -148,6 +150,16 @@ export default function Navbar() {
               </svg>
             </a>
           )}
+
+          <a
+            href="#contact"
+            onClick={(e) => handleLinkClick(e, '#contact')}
+            className="nav-cta-pill"
+            aria-label="Contact Yeswanth"
+          >
+            <span>LET’S TALK</span>
+            <span className="nav-cta-arrow">→</span>
+          </a>
 
           {/* Mobile Menu Toggle Button */}
           <button

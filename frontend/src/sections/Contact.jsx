@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SectionHeading from '../components/SectionHeading';
 import SocialLinks from '../components/SocialLinks';
 import ScrollReveal from '../components/ScrollReveal/ScrollReveal';
 import { portfolioData } from '../data/portfolio';
@@ -34,90 +33,91 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section contact-section" aria-label="Contact Yeswanth Uggina">
+    <section id="contact" className="section contact-editorial-section" aria-label="Contact Yeswanth Uggina">
       <div className="container">
+        {/* Editorial Section Header */}
         <ScrollReveal direction="up" delay={0}>
-          <SectionHeading
-            tag="CONTACT"
-            title="Get in touch."
-            description="Interested in discussing a backend engineering role, an API project, or an AI application? Reach out directly or send a message below."
-          />
+          <div className="editorial-section-header">
+            <span className="editorial-section-tag">06 / GET IN TOUCH</span>
+            <h2 className="editorial-section-title">CONTACT</h2>
+            <div className="editorial-header-divider" />
+          </div>
         </ScrollReveal>
 
-        <div className="contact-grid">
-          {/* Contact Direct Info */}
-          <ScrollReveal direction="up" delay={80}>
-            <div className="contact-info-col card">
-              <h3 className="contact-col-title">Direct Contact</h3>
-              <p className="contact-col-subtext">
-                I am open to discussions regarding backend systems, API development, and software engineering opportunities.
+        <div className="contact-editorial-grid">
+          {/* Direct Editorial Info */}
+          <ScrollReveal direction="up" delay={80} className="contact-editorial-info-col">
+            <div className="contact-editorial-panel">
+              <h3 className="contact-editorial-heading">Direct Inquiry</h3>
+              <p className="contact-editorial-lead">
+                I am open to discussions regarding Python backend engineering, RESTful architecture, relational database design, and applied AI systems.
               </p>
 
-              <div className="contact-info-item">
-                <span className="contact-label">Email</span>
-                <div className="contact-email-row">
-                  <a href={`mailto:${email}`} className="contact-value-link">
+              <div className="contact-editorial-entry">
+                <span className="contact-spec-label">EMAIL</span>
+                <div className="contact-email-inline">
+                  <a href={`mailto:${email}`} className="contact-editorial-email">
                     {email}
                   </a>
                   <button
                     type="button"
-                    className="copy-btn"
+                    className="editorial-copy-btn"
                     onClick={handleCopyEmail}
-                    aria-label="Copy email address"
+                    aria-label="Copy email address to clipboard"
                   >
-                    {copied ? 'Copied' : 'Copy'}
+                    {copied ? 'COPIED' : 'COPY'}
                   </button>
                 </div>
               </div>
 
-              <div className="contact-info-item">
-                <span className="contact-label">Location</span>
-                <p className="contact-value-text">{location}</p>
+              <div className="contact-editorial-entry">
+                <span className="contact-spec-label">LOCATION</span>
+                <p className="contact-spec-val">{location}</p>
               </div>
 
-              <div className="contact-info-item">
-                <span className="contact-label">Availability</span>
-                <p className="contact-value-text text-accent">{availability}</p>
+              <div className="contact-editorial-entry">
+                <span className="contact-spec-label">AVAILABILITY</span>
+                <p className="contact-spec-val text-accent">{availability}</p>
               </div>
 
-              <div className="contact-info-item">
-                <span className="contact-label">Profiles</span>
-                <SocialLinks showLabels className="contact-socials-list" />
+              <div className="contact-editorial-entry">
+                <span className="contact-spec-label">PROFILES</span>
+                <SocialLinks showLabels className="contact-socials-editorial" />
               </div>
             </div>
           </ScrollReveal>
 
-          {/* Frontend Contact Form UI */}
-          <ScrollReveal direction="up" delay={140}>
-            <div className="contact-form-col card">
-              <h3 className="contact-col-title">Send a Message</h3>
+          {/* Minimal Form */}
+          <ScrollReveal direction="up" delay={140} className="contact-editorial-form-col">
+            <div className="contact-form-editorial-panel">
+              <h3 className="contact-editorial-heading">Send a Message</h3>
 
               {formSubmitted ? (
-                <div className="form-success-banner" role="status">
-                  <div className="success-icon">&#10003;</div>
-                  <h4 className="success-title">Message Received (UI Preview)</h4>
-                  <p className="success-message">
-                    Thank you, <strong>{formData.name}</strong>. The backend contact API will be integrated in Phase 3. In the meantime, please feel free to email directly at{' '}
+                <div className="editorial-form-success" role="status">
+                  <div className="editorial-success-icon">&#10003;</div>
+                  <h4 className="editorial-success-title">Message Received (UI Preview)</h4>
+                  <p className="editorial-success-msg">
+                    Thank you, <strong>{formData.name}</strong>. The backend database contact endpoint will be integrated in Phase 3. In the meantime, please feel free to email directly at{' '}
                     <a href={`mailto:${email}`} className="text-accent">
                       {email}
                     </a>.
                   </p>
                   <button
                     type="button"
-                    className="btn btn-outline btn-sm mt-3"
+                    className="editorial-action-btn outline mt-3"
                     onClick={() => {
                       setFormSubmitted(false);
                       setFormData({ name: '', email: '', message: '' });
                     }}
                   >
-                    Reset Form
+                    RESET FORM
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="contact-form" noValidate>
-                  <div className="form-group">
-                    <label htmlFor="contact-name" className="form-label">
-                      Name
+                <form onSubmit={handleSubmit} className="contact-editorial-form" noValidate>
+                  <div className="editorial-form-field">
+                    <label htmlFor="contact-name" className="editorial-field-label">
+                      NAME
                     </label>
                     <input
                       type="text"
@@ -125,15 +125,15 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="Your Name"
+                      placeholder="Your name"
                       required
-                      className="form-input"
+                      className="editorial-input"
                     />
                   </div>
 
-                  <div className="form-group">
-                    <label htmlFor="contact-email" className="form-label">
-                      Email
+                  <div className="editorial-form-field">
+                    <label htmlFor="contact-email" className="editorial-field-label">
+                      EMAIL
                     </label>
                     <input
                       type="email"
@@ -141,34 +141,38 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="your.email@example.com"
+                      placeholder="your.email@domain.com"
                       required
-                      className="form-input"
+                      className="editorial-input"
                     />
                   </div>
 
-                  <div className="form-group">
-                    <label htmlFor="contact-message" className="form-label">
-                      Message
+                  <div className="editorial-form-field">
+                    <label htmlFor="contact-message" className="editorial-field-label">
+                      MESSAGE
                     </label>
                     <textarea
                       id="contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Briefly describe your inquiry, project scope, or opportunity..."
-                      rows={5}
+                      placeholder="Briefly describe your project scope or engineering inquiry..."
+                      rows={4}
                       required
-                      className="form-textarea"
+                      className="editorial-textarea"
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary btn-md submit-btn">
-                    Submit
+                  <button type="submit" className="editorial-action-btn primary submit-editorial-btn">
+                    <span>SEND MESSAGE</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
                   </button>
 
-                  <p className="form-footnote text-muted">
-                    Phase 1 note: This form is currently frontend-only. Backend database submission will be enabled in Phase 3.
+                  <p className="editorial-form-footnote">
+                    Note: Frontend UI preview. Contact API submission will be activated in Phase 3.
                   </p>
                 </form>
               )}

@@ -1,5 +1,4 @@
 import React from 'react';
-import SectionHeading from '../components/SectionHeading';
 import ScrollReveal from '../components/ScrollReveal/ScrollReveal';
 import { portfolioData } from '../data/portfolio';
 
@@ -7,14 +6,14 @@ export default function Education() {
   const { education } = portfolioData;
 
   return (
-    <section id="education" className="section education-section" aria-label="Education Background">
+    <section id="education" className="section education-editorial-section" aria-label="Education Background">
       <div className="container">
         <ScrollReveal direction="up" delay={0}>
-          <SectionHeading
-            tag="EDUCATION"
-            title="Academic background."
-            description="Formal academic education in Computer Science and foundational STEM curricula."
-          />
+          <div className="editorial-section-header">
+            <span className="editorial-section-tag">05 / EDUCATION</span>
+            <h2 className="editorial-section-title">Academic background.</h2>
+            <div className="editorial-header-divider" />
+          </div>
         </ScrollReveal>
 
         <div className="education-grid">

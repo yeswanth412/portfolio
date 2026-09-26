@@ -1,5 +1,4 @@
 import React from 'react';
-import SectionHeading from '../components/SectionHeading';
 import ExperienceCard from '../components/ExperienceCard';
 import ScrollReveal from '../components/ScrollReveal/ScrollReveal';
 import { portfolioData } from '../data/portfolio';
@@ -8,14 +7,14 @@ export default function Experience() {
   const { experience } = portfolioData;
 
   return (
-    <section id="experience" className="section experience-section" aria-label="Engineering Experience">
+    <section id="experience" className="section experience-editorial-section" aria-label="Engineering Experience">
       <div className="container">
         <ScrollReveal direction="up" delay={0}>
-          <SectionHeading
-            tag="EXPERIENCE & SYSTEMS"
-            title="Engineering background."
-            description="Verified background in backend development, API implementation, database modeling, and machine learning pipelines."
-          />
+          <div className="editorial-section-header">
+            <span className="editorial-section-tag">04 / EXPERIENCE</span>
+            <h2 className="editorial-section-title">Professional engineering background.</h2>
+            <div className="editorial-header-divider" />
+          </div>
         </ScrollReveal>
 
         <div className="timeline-wrapper">
