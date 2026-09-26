@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { portfolioData } from '../../data/portfolio';
-import ProjectModal from '../ProjectModal';
 
 export default function SelectedProjects() {
-  const [selectedProject, setSelectedProject] = useState(null);
   const { projects, personal } = portfolioData;
 
   return (
@@ -38,10 +36,13 @@ export default function SelectedProjects() {
         {/* 4-Card Horizontal Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project) => (
-            <article
+            <a
               key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer flex flex-col bg-white border border-[#E7E4DC] rounded-sm p-4 hover:border-[#C86D51] hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.title} GitHub repository`}
+              className="group cursor-pointer flex flex-col bg-white border border-[#E7E4DC] rounded-sm p-4 hover:border-[#C86D51] hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#C86D51] no-underline text-inherit"
             >
               {/* Project Card Editorial Visual */}
               <div className="w-full h-56 bg-[#202022] rounded-sm overflow-hidden relative mb-4 flex flex-col justify-between p-5 border border-[#303034]">
@@ -93,18 +94,10 @@ export default function SelectedProjects() {
                   </p>
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>
-
-      {/* Project Modal */}
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </section>
   );
 }
