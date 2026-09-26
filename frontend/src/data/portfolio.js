@@ -147,6 +147,23 @@ export const portfolioData = {
       githubUrl: "https://github.com/yeswanth412/hospital_management",
       liveUrl: null,
     },
+    {
+      id: "flashwear",
+      number: "05",
+      title: "FLASHWEAR",
+      category: "Quick Commerce & E-Commerce Platform",
+      description: "A high-performance backend platform for apparel e-commerce featuring asynchronous API endpoints, catalog management, shopping cart state, and order workflows.",
+      architecture: "Engineered with FastAPI, SQLAlchemy 2.0 (asyncpg), PostgreSQL, and Redis. Integrates Celery background workers, RabbitMQ message brokering, and JWT authentication.",
+      highlights: [
+        "Asynchronous FastAPI service architecture with PostgreSQL & asyncpg",
+        "Distributed task queues and messaging using Celery & RabbitMQ",
+        "Redis caching layer for high-speed cart and session management",
+        "Comprehensive backend domain: auth, product catalog, cart, and orders",
+      ],
+      technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "Celery", "RabbitMQ"],
+      githubUrl: "https://github.com/Kiran388-code/FLASHWEAR_E-COMMERCE",
+      liveUrl: null,
+    },
   ],
 
   whatIveBuilt: [

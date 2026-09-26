@@ -33,8 +33,8 @@ export default function SelectedProjects() {
           </a>
         </div>
 
-        {/* 4-Card Horizontal Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Projects Editorial Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <a
               key={project.id}

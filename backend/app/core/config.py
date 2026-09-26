@@ -14,7 +14,22 @@ class Settings(BaseSettings):
     BACKEND_CORS_ORIGINS: List[str] = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "https://yeswanth-portfolio.onrender.com",
     ]
+
+    # Contact & Email Notification Settings
+    CONTACT_TO_EMAIL: str = "ugginayeswanthnarasayyanaidu@gmail.com"
+    EMAIL_SERVICE_API_KEY: str = ""
+    RESEND_API_KEY: str = ""
+    EMAIL_FROM: str = "Yeswanth Portfolio <onboarding@resend.dev>"
+
+    # Optional SMTP Fallback Settings
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = 587
+    SMTP_USER: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM: str = ""
+    SMTP_TLS: bool = True
 
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod

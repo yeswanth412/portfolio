@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { portfolioData } from '../../data/portfolio.js';
 import { getContactCardUrl } from '../../utils/siteConfig.js';
+import { sendContactMessage } from '../../services/api.js';
 
 export default function ContactFooter({ onOpenResume }) {
   const { personal } = portfolioData;
   const contactCardUrl = getContactCardUrl();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [copied, setCopied] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleCopyEmail = () => {
@@ -19,12 +22,25 @@ export default function ContactFooter({ onOpenResume }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errorMessage) setErrorMessage('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (sending) return;
     if (!formData.name || !formData.email || !formData.message) return;
-    setFormSubmitted(true);
+
+    setSending(true);
+    setErrorMessage('');
+    try {
+      await sendContactMessage(formData);
+      setFormSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err) {
+      setErrorMessage(err.message || 'MESSAGE COULD NOT BE SENT. PLEASE TRY AGAIN.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -120,28 +136,35 @@ export default function ContactFooter({ onOpenResume }) {
 
               {formSubmitted ? (
                 <div className="py-4">
+                  <span className="font-mono text-[10px] font-bold tracking-widest text-[#34A853] uppercase block mb-1">
+                    CONFIRMATION
+                  </span>
                   <h4 className="font-serif text-lg font-bold text-[#141414] mb-2">
-                    Thank you, {formData.name}!
+                    MESSAGE SENT SUCCESSFULLY
                   </h4>
                   <p className="font-sans text-sm text-[#55524B] mb-4">
-                    Your note has been received. You can also reach me directly at{' '}
-                    <a href={`mailto:${personal.email}`} className="text-[#C86D51] underline font-medium">
-                      {personal.email}
-                    </a>.
+                    Your note has been delivered directly to Yeswanth.
                   </p>
                   <button
                     type="button"
                     onClick={() => {
                       setFormSubmitted(false);
+                      setErrorMessage('');
                       setFormData({ name: '', email: '', message: '' });
                     }}
-                    className="px-4 py-2 rounded-full border border-[#141414] text-xs font-mono font-bold uppercase hover:bg-[#141414] hover:text-white transition-colors"
+                    className="px-4 py-2 rounded-full border border-[#141414] text-xs font-mono font-bold uppercase hover:bg-[#141414] hover:text-white transition-colors cursor-pointer"
                   >
                     SEND ANOTHER NOTE
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  {errorMessage && (
+                    <div className="p-3 bg-[#FDF2F0] border border-[#E8B4A6] text-[#C86D51] font-mono text-xs font-bold rounded-sm">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="font-mono text-[10.5px] font-bold tracking-wider text-[#66645E] uppercase block mb-1">
@@ -152,10 +175,11 @@ export default function ContactFooter({ onOpenResume }) {
                         name="name"
                         type="text"
                         required
+                        disabled={sending}
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="e.g. Alex Morgan"
-                        className="w-full px-3 py-2 text-sm font-sans bg-[#F5F3EC] border border-[#D8D4C8] rounded-sm focus:outline-none focus:border-[#C86D51]"
+                        className="w-full px-3 py-2 text-sm font-sans bg-[#F5F3EC] border border-[#D8D4C8] rounded-sm focus:outline-none focus:border-[#C86D51] disabled:opacity-60"
                       />
                     </div>
                     <div>
@@ -167,10 +191,11 @@ export default function ContactFooter({ onOpenResume }) {
                         name="email"
                         type="email"
                         required
+                        disabled={sending}
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="alex@company.com"
-                        className="w-full px-3 py-2 text-sm font-sans bg-[#F5F3EC] border border-[#D8D4C8] rounded-sm focus:outline-none focus:border-[#C86D51]"
+                        className="w-full px-3 py-2 text-sm font-sans bg-[#F5F3EC] border border-[#D8D4C8] rounded-sm focus:outline-none focus:border-[#C86D51] disabled:opacity-60"
                       />
                     </div>
                   </div>
@@ -184,19 +209,23 @@ export default function ContactFooter({ onOpenResume }) {
                       name="message"
                       rows="3"
                       required
+                      disabled={sending}
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Discussing Python backend development or project collaboration..."
-                      className="w-full px-3 py-2 text-sm font-sans bg-[#F5F3EC] border border-[#D8D4C8] rounded-sm focus:outline-none focus:border-[#C86D51]"
+                      className="w-full px-3 py-2 text-sm font-sans bg-[#F5F3EC] border border-[#D8D4C8] rounded-sm focus:outline-none focus:border-[#C86D51] disabled:opacity-60"
                     />
                   </div>
 
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
                     <button
                       type="submit"
-                      className="px-6 py-2.5 rounded-full bg-[#141414] hover:bg-[#C86D51] text-white font-mono text-xs font-bold tracking-wider uppercase transition-colors shadow-sm"
+                      disabled={sending}
+                      className={`px-6 py-2.5 rounded-full bg-[#141414] hover:bg-[#C86D51] text-white font-mono text-xs font-bold tracking-wider uppercase transition-colors shadow-sm ${
+                        sending ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'
+                      }`}
                     >
-                      SEND MESSAGE →
+                      {sending ? 'SENDING...' : 'SEND MESSAGE →'}
                     </button>
 
                     <button
