@@ -64,21 +64,21 @@ export default function HeroEditorial({ onOpenResume }) {
       {/* 3. MAIN HERO STAGE */}
       <div className="w-full max-w-7xl mx-auto relative mt-4 md:mt-6 flex-1 flex flex-col justify-end">
         {/* Giant "YESWANTH" Backdrop Title */}
-        <div className="w-full text-center select-none pointer-events-none">
-          <h1 className="font-display text-[clamp(4.8rem,15vw,14rem)] leading-[0.84] tracking-[-0.03em] text-[#141414] uppercase">
+        <div className="w-full text-center select-none pointer-events-none relative z-0">
+          <h1 className="font-display text-[clamp(2.25rem,10vw,4.5rem)] md:text-[clamp(4.5rem,8.5vw,6.5rem)] lg:text-[clamp(6.5rem,10vw,9.5rem)] xl:text-[clamp(10rem,12.5vw,13.5rem)] 2xl:text-[clamp(12rem,14vw,14rem)] leading-[0.88] tracking-[-0.02em] text-[#141414] uppercase">
             YESWANTH
           </h1>
         </div>
 
         {/* Hero Editorial Split Content */}
-        <div className="relative mt-[-2rem] sm:mt-[-4rem] md:mt-[-6.5rem] grid grid-cols-1 md:grid-cols-12 items-end gap-8">
+        <div className="relative mt-4 sm:mt-6 md:mt-0 lg:mt-[-2.5rem] xl:mt-[-4.5rem] 2xl:mt-[-6.5rem] grid grid-cols-1 md:grid-cols-12 items-end gap-8">
           {/* LEFT COLUMN: Identity Block */}
-          <div className="md:col-span-5 z-10 flex flex-col justify-end pb-8 sm:pb-12 md:pb-16">
+          <div className="md:col-span-5 relative z-10 flex flex-col justify-end pt-2 md:pt-4 lg:pt-6 xl:pt-8 pb-8 sm:pb-12 md:pb-16">
             <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.2em] text-[#66645E] uppercase mb-2">
               HELLO, I&apos;M
             </span>
 
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#141414] leading-[1.02] mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-[2.6rem] lg:text-5xl xl:text-6xl font-black tracking-tight text-[#141414] leading-[1.02] mb-3 break-words">
               YESWANTH <br />
               UGGINA
             </h2>
